@@ -71,9 +71,8 @@ http_interactions:
       Transfer-Encoding:
       - chunked
     body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        H4sIAAAAAAAA/21STYvbMBD9K8L0mIBk2ZHtm+04bAspIe2xYGZlORF1JK8+DmHZ/95R2NAeehHSm6f3Zh7znukpa7K62Akm+rzf70WxP+y7fsirritEWx2GvhXZJpsgQNa8Z6vTUo0OzEXhxyNoT96iIucvpKR0QylS1+vdawnLuDo7RRk8EmdYvMLaa/TaKO/HcF+TQDspHxzclAmWTIq0Rt+SJl4HH/D+K1KqxOPkNokr5615fj+hlAVyeNSn5IoUiMHeIGg5orLxs3L/NCDXGV+clzTndFeJNJtBfwS/qwWlyVEb68gLOLhEedXkWzTauqQ7TQ79kHmOQE7OzsndkXN81Z8NkqPSDjaEUZa81IpkWha03tI8RSN1uCP040k/QVzSVD5AUP8rBLWo9WpNKjJGeClYxXiVkgTzG8Gv4RHRDJ/QCJc0H8vr1LGUNprwTKu3zmHQ6kmVEsGc5zndiuzjL/2xExUbOlwC1uW0Koayblte7HZUVDVm1x9SbtIpbHsaISQdyqot5VtW/2RFQ8uG49C8wY34+ANmqlnsZgIAAA==
+      encoding: UTF-8
+      string: '{"id":"946717C2CDD74DFDBCE28BB47A8FECA7", "created_at":"2018-03-19T14:05:39-03:00"}'
     http_version:
   recorded_at: Mon, 19 Mar 2018 17:05:39 GMT
 recorded_with: VCR 4.0.0

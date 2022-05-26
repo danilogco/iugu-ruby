@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 module Iugu
   class Account < APIResource
-
     # POST /marketplace/create_account
     #
     # Creates a account

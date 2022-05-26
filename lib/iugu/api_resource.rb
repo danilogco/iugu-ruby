@@ -15,7 +15,7 @@ module Iugu
     end
 
     def self.endpoint_url
-      Iugu.base_uri + object_base_uri
+      "#{Iugu.base_uri}#{self.object_base_uri}"
     end
 
     def self.relative_url(options = "")
@@ -33,7 +33,7 @@ module Iugu
     def self.object_base_uri
       pluralized_models = ["account", "customer", "payment_method", "invoice", "subscription", "plan"]
       if pluralized_models.include? self.object_type
-        object_type = self.object_type + "s"
+        "#{self.object_type}s"
       else
         object_type
       end

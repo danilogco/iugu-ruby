@@ -68,9 +68,8 @@ http_interactions:
       Transfer-Encoding:
       - chunked
     body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        H4sIAAAAAAAA/1XLMW7DMAyF4asUmjtIIkWR3eIiGbLmAIZMUajRVC4aJxmC3r3uUqDre//3cEV1ufZ1nKt7cRz2Q+QhDNEz7pPsdoBEPrNA8q+H7J5dLx+2lcflrT+d+nLfpvN8s7F8zuO6vFvfTuOJjDl4DDWLr4mbNGRKmhWz6WZWu6z/jADEJIBq4oufStMEUYQiSsBYf831Yl9/fSJIVk24Qc4VJwNopEheIxO37L5/AAAQbp3cAAAA
+      encoding: UTF-8
+      string: '{"is_new?":true, "account_id":"xxxx", "user_token": "yyy", "live_api_token": "xxx", "test_api_token": "test_api_token"}'
     http_version:
   recorded_at: Mon, 19 Mar 2018 16:45:31 GMT
 recorded_with: VCR 4.0.0

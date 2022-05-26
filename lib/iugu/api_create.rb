@@ -6,7 +6,7 @@ module Iugu
       def create(attributes = {}, token = nil)
         Iugu::Factory.create_from_response(
           object_type,
-          APIRequest.request('POST', url(attributes), attributes, token)
+          APIRequest.request("POST", url(attributes), attributes, token)
         )
       rescue Iugu::RequestWithErrors => e
         obj = new

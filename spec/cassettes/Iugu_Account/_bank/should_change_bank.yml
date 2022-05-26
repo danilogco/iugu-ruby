@@ -68,9 +68,8 @@ http_interactions:
       Transfer-Encoding:
       - chunked
     body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        H4sIAAAAAAAA/6tWKi5NTk4tLlayKikqTa0FAN/39mYQAAAA
+      encoding: UTF-8
+      string: '{"success":true}'
     http_version:
   recorded_at: Mon, 19 Mar 2018 18:39:00 GMT
 recorded_with: VCR 4.0.0

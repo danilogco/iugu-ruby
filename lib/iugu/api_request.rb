@@ -6,7 +6,6 @@ require "json"
 
 module Iugu
   class APIRequest
-
     def self.request(method, url, data = {}, authorization_token = nil)
       Iugu::Utils.auth_from_env if Iugu.api_key.nil?
       raise Iugu::AuthenticationException, "Chave de API não configurada. Utilize Iugu.api_key = ... para configurar." if Iugu.api_key.nil?
@@ -52,12 +51,12 @@ module Iugu
     def self.default_headers(authorization_token)
       token = authorization_token || Iugu.api_key
       {
-        authorization: 'Basic ' + Base64.strict_encode64(token + ":"),
-        accept: 'application/json',
-        accept_charset: 'utf-8',
-        user_agent: 'Iugu RubyLibrary',
-        accept_language: 'pt-br;q=0.9,pt-BR',
-        content_type: 'application/json; charset=utf-8'
+        authorization: "Basic " + Base64.strict_encode64(token + ":"),
+        accept: "application/json",
+        accept_charset: "utf-8",
+        user_agent: "Iugu RubyLibrary",
+        accept_language: "pt-br;q=0.9,pt-BR",
+        content_type: "application/json; charset=utf-8"
       }
     end
   end
