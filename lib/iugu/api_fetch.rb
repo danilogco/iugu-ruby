@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Iugu
   module APIFetch
     def refresh(token = nil)
@@ -6,8 +8,8 @@ module Iugu
       )
       self.errors = nil
       true
-    rescue Iugu::RequestWithErrors => ex
-      self.errors = ex.errors
+    rescue Iugu::RequestWithErrors => e
+      self.errors = e.errors
       false
     end
 

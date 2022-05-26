@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Iugu
   module APICreate
     module ClassMethods
@@ -6,10 +8,10 @@ module Iugu
           object_type,
           APIRequest.request('POST', url(attributes), attributes, token)
         )
-      rescue Iugu::RequestWithErrors => ex
+      rescue Iugu::RequestWithErrors => e
         obj = new
         obj.set_attributes attributes, true
-        obj.errors = ex.errors
+        obj.errors = e.errors
         obj
       end
     end

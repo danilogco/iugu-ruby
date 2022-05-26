@@ -1,14 +1,17 @@
+# frozen_string_literal: true
+
 module Iugu
   class Charge < APIResource
     include Iugu::APICreate
 
     def success
-      @attributes['success'] || false
+      @attributes["success"] || false
     end
 
     def invoice
-      return false unless @attributes['invoice_id']
-      Invoice.fetch @attributes['invoice_id']
+      return false unless @attributes["invoice_id"]
+
+      Invoice.fetch @attributes["invoice_id"]
     end
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Iugu
   class APIChildResource
     @parent_keys = {}
@@ -21,9 +23,8 @@ module Iugu
     end
 
     private
-
-    def merge_params(attributes)
-      @parent_keys.merge attributes
-    end
+      def merge_params(attributes)
+        @parent_keys.merge attributes
+      end
   end
 end

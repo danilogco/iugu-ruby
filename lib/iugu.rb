@@ -42,8 +42,8 @@ module Iugu
     attr_accessor :api_key
   end
 
-  @api_version = 'v1'
-  @endpoint = 'https://api.iugu.com'
+  @api_version = "v1"
+  @endpoint = "https://api.iugu.com"
 
   def self.base_uri
     "#{@endpoint}/#{@api_version}/"

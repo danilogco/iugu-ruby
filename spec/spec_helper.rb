@@ -1,9 +1,11 @@
-require 'iugu'
-require 'vcr'
-require 'byebug'
+# frozen_string_literal: true
+
+require "iugu"
+require "vcr"
+require "byebug"
 
 VCR.configure do |config|
-  config.cassette_library_dir = 'spec/cassettes'
+  config.cassette_library_dir = "spec/cassettes"
   config.hook_into :webmock
   config.configure_rspec_metadata!
 
@@ -26,7 +28,7 @@ RSpec.configure do |config|
   config.shared_context_metadata_behavior = :apply_to_host_groups
 
   config.before(:each) do
-    Iugu.api_key = 'development_api_token'
-    allow(Iugu).to receive(:base_uri).and_return('http://api.iugu.dev/v1/')
+    Iugu.api_key = "development_api_token"
+    allow(Iugu).to receive(:base_uri).and_return("http://api.iugu.dev/v1/")
   end
 end

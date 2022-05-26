@@ -1,6 +1,8 @@
-require 'rest_client'
-require 'base64'
-require 'json'
+# frozen_string_literal: true
+
+require "rest_client"
+require "base64"
+require "json"
 
 module Iugu
   class APIRequest
@@ -8,17 +10,17 @@ module Iugu
     def self.request(method, url, data = {}, authorization_token = nil)
       Iugu::Utils.auth_from_env if Iugu.api_key.nil?
       raise Iugu::AuthenticationException, "Chave de API não configurada. Utilize Iugu.api_key = ... para configurar." if Iugu.api_key.nil?
-      handle_response self.send_request method, url, data, authorization_token
+      handle_response send_request method, url, data, authorization_token
     end
 
     def self.send_request(method, url, data, authorization_token)
       RestClient::Request.execute build_request(method, url, data, authorization_token)
     rescue RestClient::ResourceNotFound
       raise ObjectNotFound
-    rescue RestClient::UnprocessableEntity => ex
-      raise RequestWithErrors.new JSON.parse(ex.response)['errors']
-    rescue RestClient::BadRequest => ex
-      raise RequestWithErrors.new JSON.parse(ex.response)['errors']
+    rescue RestClient::UnprocessableEntity => e
+      raise RequestWithErrors, JSON.parse(e.response)["errors"]
+    rescue RestClient::BadRequest => e
+      raise RequestWithErrors, JSON.parse(e.response)["errors"]
     end
 
     def self.build_request(method, url, data, authorization_token)
@@ -35,8 +37,13 @@ module Iugu
 
     def self.handle_response(response)
       response_json = JSON.parse(response.body)
-      raise ObjectNotFound if response_json.is_a?(Hash) && response_json['errors'] == 'Not Found'
-      raise RequestWithErrors, response_json['errors'] if response_json.is_a?(Hash) && response_json['errors'] && response_json['errors'].length > 0
+      raise ObjectNotFound if response_json.is_a?(Hash) && response_json["errors"] == "Not Found"
+
+      if response_json.is_a?(Hash) && response_json["errors"] && response_json["errors"].length.positive?
+        raise RequestWithErrors,
+              response_json["errors"]
+      end
+
       response_json
     rescue JSON::ParserError
       raise RequestFailed
@@ -53,6 +60,5 @@ module Iugu
         content_type: 'application/json; charset=utf-8'
       }
     end
-
   end
 end

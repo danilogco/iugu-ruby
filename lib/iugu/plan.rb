@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Iugu
   class Plan < APIResource
     include Iugu::APIFetch
@@ -7,7 +9,7 @@ module Iugu
 
     def self.fetch_by_identifier(identifier)
       Iugu::Factory.create_from_response(object_type,
-                                         APIRequest.request('GET',
+                                         APIRequest.request("GET",
                                                             "#{url}/identifier/#{identifier}"))
     end
   end

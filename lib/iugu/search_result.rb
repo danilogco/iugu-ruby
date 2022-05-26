@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Iugu
   class SearchResult
     def initialize(results, total_results)
@@ -5,12 +7,6 @@ module Iugu
       @total = total_results
     end
 
-    def total
-      @total
-    end
-
-    def results
-      @results
-    end
+    attr_reader :total, :results
   end
 end
