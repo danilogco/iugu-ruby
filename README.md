@@ -6,7 +6,7 @@ Gem para acesso a API da Iugu
 
 * Adicionado método para verificar conta (marketplace);
 * Adicionado método para capturar fatura em pagamento de duas etapas;
-* Contém solução proposta na PR https://github.com/iugu/iugu-ruby/pull/29
+* Contém solução proposta na PR <https://github.com/iugu/iugu-ruby/pull/29>
 
 ## Instalação
 
